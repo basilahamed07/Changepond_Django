@@ -1,6 +1,6 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render
 from django.http import *
-
+from django.urls import reverse
 # Create your views here.
 
 dates = {
