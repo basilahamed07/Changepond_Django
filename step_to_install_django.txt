@@ -1,0 +1,27 @@
+Step1 => 
+
+        => pip install pip install virtualenvwrapper-win
+
+Step2 =>
+
+        -> mkvirtualenv (Name of the env)
+
+To check the what the packages are install in pip
+        
+        => pip freeze
+
+to install the django:
+
+        => pip install django
+
+to create the project in django:
+
+        => django-admin startproject (Project_name)
+
+to create the app in django
+
+        => cd (Project_name)
+        => django-admin stratapp (app_name)
+
+to run the server:
+        => python manage.py runserver
