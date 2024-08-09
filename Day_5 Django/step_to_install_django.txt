@@ -68,3 +68,15 @@ python interpreter that is directory has package.
 => to create the app i project
 
         =>  
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+urls
+
+-> create the urls.py file inside the app 
+
+urls.py:
+        we can poass the variiable via url by using thee (<>)
+        exmaple = 
+                path("<variable>",function)
