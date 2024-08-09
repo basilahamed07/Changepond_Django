@@ -25,3 +25,46 @@ to create the app in django
 
 to run the server:
         => python manage.py runserver
+
+
+
+
++++++++++++++++++++++++++++_______________________+++++++++++++++++++++++____________________+++++++++++++++++++________________________
+Structure Defenaction:
+
+(Project_name) django_pratice_1
+                        => __init__.py 
+                        => asgi.py
+                        => settings.py
+                        => urls.py
+                        => wsgi.py
+                    => manage.py
+
+=> manage.py File:
+    => command line utility for our project
+    => the file contains the code for running the server
+    => it lets you to interact with your project
+        => example code:
+            => python manage.py runserver
+            => python manage.py makemigraction
+                etc
+=> setting.py:
+    => Typically used to store the configuraction informcation in django
+    => default database was set in it
+    => when ever we create the app in django we want to add the app name in setting/.py file 
+    => inside the instal_app[(app_name)]
+=> __init__.py:
+    => empty file , function of this file tells
+python interpreter that is directory has package.
+
+=> urls.py:
+    => used to provide you the address of the particular page
+
+=> wsgi.py:
+    => it is the way how server interact with the application
+    also asgi.py (work similar like wsgi)
+
+
+=> to create the app i project
+
+        =>  
