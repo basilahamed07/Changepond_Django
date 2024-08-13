@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block page_title %}Month details{% endblock  %}
+{% block contents %}
+    {% for trash in month %}
+    {% comment %} <li> <a href="{% url "month/" trash %} "> <h1>{{trash}}</h1></li> {% endcomment %}
+    <ul>
+    <li> <a href="{% url "month-detail" trash %} "> <h1>{{trash}}</h1></li>
+    </ul>
+    {% endfor %}
+{% endblock %}
