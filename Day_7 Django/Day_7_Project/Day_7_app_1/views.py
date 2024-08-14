@@ -1,28 +1,29 @@
 from django.shortcuts import render
 from django.http import *
 from .models import Author
+from django.db.models import Q
 # Create your views here.
 def Authorss(request,authors):
+    author = authors.split()
+    finding_1 = author[0]
+    finding_2 = author[1]
+    print(author)
+    rootword = Author.objects.filter(Q(First_name=finding_1)&Q(last_name=finding_2))
+    print(list(rootword))
+    print(rootword)
+    return render(request,"authors/author_name.html",{"author":rootword})
+def id_filter(request,ids):
     try:
-        author = authors.split()
-        print(author)
-        # print(Author.objects.get(First_name=author[0]))
-        lists = list((Author.objects.all()))
-        # for trash in range(0,len(lists)):
-        #     print(lists = Author.objects.all()[trash])
-        responce_data = render(request,"authors/author_name.html",{"text":(Author.objects.get(First_name=author[0]))})
-        return HttpResponse(responce_data)
+        filters = Author.objects.get(id=ids)
+        return render(request,"authors/author_id.html",{"author":filters})
     except:
-        return HttpResponse("bad request")
-
+        raise Http404("error")
+def slug(request,authors):
+    try:
+        filters = Author.objects.get(slug=authors)
+        return render(request,"authors/author_slug.html",{"author":filters})
+    except:
+        raise Http404("error")
 def index(request):
     return render(request,"authors/authors.html",{"author":Author.objects.all()})
 
-def month_details(request,month):
-    try:
-        month_text = Month[month]
-        # responce_data = render_to_string("month/month.html")
-        responce_data = render(request,"month/month.html",{"text":month_text})
-        return HttpResponse(responce_data)
-    except:
-        return HttpResponseNotFound(f"<h1>{month} Not Found <h1>")
