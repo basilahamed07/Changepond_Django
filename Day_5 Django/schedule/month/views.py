@@ -28,12 +28,13 @@ def month_in_number(request,month):
 
 
 def month_details(request,month):
-    try:
+    # try:
         month_text = Month[month]
         # responce_data = render_to_string("month/month.html")
+        print("inside")
         responce_data = render(request,"month/month.html",{"text":month_text})
         return HttpResponse(responce_data)
-    except:
-        return HttpResponseNotFound(f"<h1>{month} Not Found <h1>")
+    # except:
+    #     return HttpResponseNotFound(f"<h1>{month} Not Found <h1>")
 # Create your views here.
     
