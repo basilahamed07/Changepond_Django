@@ -1,11 +1,16 @@
 from django.db import models
 from django.utils.text import slugify
+
+
+
 # Create your models here.
 class Tags(models.Model):
     caption = models.CharField(max_length=100)
     
     def __str__(self):
         return f"{self.caption}"
+
+
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
@@ -15,10 +20,14 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.first_name}"
     
+
+
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     image_name = models.CharField(max_length=100)
-    image_link = models.ImageField(upload_to="Images")
+    # image_link = models.ImageField(upload_to="files")
+    file_fields = models.FileField(upload_to="images", null=True)
     date = models.DateField(auto_now=True)
     slug = models.SlugField(default="",db_index=True,editable=False)
     content = models.CharField(max_length=100)
@@ -34,6 +43,9 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.slug}"
     
+
+
+
 class Comment(models.Model):
 
     user_name = models.CharField(max_length=100)
@@ -43,8 +55,4 @@ class Comment(models.Model):
     
     def __str__(self):
         return f"{self.user_name}"
-    
-class imagesclass(models.Model):
-    image = models.ImageField(upload_to="test_image")
-    
-    
+        
