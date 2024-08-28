@@ -7,5 +7,5 @@ router.register('', AuthorViewset, basename='author')
 app_name ='author'
  
 urlpatterns=[
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]

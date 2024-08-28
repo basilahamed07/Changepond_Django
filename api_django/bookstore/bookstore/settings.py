@@ -84,9 +84,13 @@ DATABASES = {
         "PORT":3333,
         "USER" : "root",
         "PASSWORD":"",
-        "HOST" :'Localhost'
+        "HOST" :'localhost'
     }
 }
+
+
+
+
 
 
 # Password validation
