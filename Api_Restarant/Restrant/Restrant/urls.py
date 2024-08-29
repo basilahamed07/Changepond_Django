@@ -46,5 +46,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/dish_catogory', include("dish.urls")),
     path('api/dishname', include("dish_names.urls")),
+    path('api/user', include("userprofile.urls")),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ] +static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

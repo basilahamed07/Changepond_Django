@@ -5,8 +5,8 @@ from .views import catogoryViewset
  
  #prebuild code for swagger api
 router = DefaultRouter()
-router.register('', catogoryViewset, basename='author')
-app_name ='author'
+router.register('', catogoryViewset, basename='dish_catogory')
+app_name ='dish_catogory'
  
 urlpatterns=[
     path('', include(router.urls)),

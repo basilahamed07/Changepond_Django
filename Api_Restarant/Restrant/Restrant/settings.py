@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dish', 
     'dish_names', 
+    'userprofile', 
     'drf_yasg',
     "rest_framework",
     

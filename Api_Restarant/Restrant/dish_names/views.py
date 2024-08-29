@@ -23,28 +23,28 @@ class DishnameCreateView(ModelViewSet):
         elif self.action == 'create':
             return dishSerializer
         return self.serializer_class
-
+    
 
 
 #------------------------------->>>>getting image<<<<<-------------------------------
 #image upload
 
-    # @action(methods=['POST'],detail=True,url_path='upload-image')
-    # def upload_image(self,request,pk=None):
-    #     catogory_objs =self.get_object()
-    #     serializer=self.get_serializer(catogory_objs,data=request.data)
-    #     if not serializer.is_valid():
-    #         return Response({
-    #                 'status': status.HTTP_400_BAD_REQUEST,
-    #                 'data':serializer.errors,
-    #                 'message':'Inavlid Data'
-    #             })
-    #     serializer.save()
-    #     return Response({
-    #                 'status': status.HTTP_200_OK,
-    #                 'data':serializer.data,
-    #                 'message': 'catogory Image Successfully'
-    #             })
+    @action(methods=['POST'],detail=True,url_path='upload-image')
+    def upload_image(self,request,pk=None):
+        catogory_objs =self.get_object()
+        serializer=self.get_serializer(catogory_objs,data=request.data)
+        if not serializer.is_valid():
+            return Response({
+                    'status': status.HTTP_400_BAD_REQUEST,
+                    'data':serializer.errors,
+                    'message':'Inavlid Data'
+                })
+        serializer.save()
+        return Response({
+                    'status': status.HTTP_200_OK,
+                    'data':serializer.data,
+                    'message': 'catogory Image Successfully'
+                })
 
 
 
