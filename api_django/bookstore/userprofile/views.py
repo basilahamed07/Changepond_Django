@@ -2,7 +2,9 @@ from django.shortcuts import render
  
 # Create your views here.
 # Create your views here.
- 
+
+from rest_framework.views import APIView
+from drf_yasg.utils import swagger_auto_schema
 from .serializers import UserSerializer, RegisterSerializer
 from rest_framework.response import Response
 from rest_framework import generics,status
@@ -12,13 +14,12 @@ from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import permissions
 from rest_framework_simplejwt.authentication import JWTAuthentication
-
-
+ 
 # Create your views here.
 # @extend_schema(auth=[])
 class RegisterUserAPIView(APIView):
     """Create User for authentication."""
-    # permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
     serializer_class = RegisterSerializer
  
     @swagger_auto_schema(
@@ -45,6 +46,8 @@ class RegisterUserAPIView(APIView):
             'message':'User added successfully'
         })
  
+
+ 
 class ManageUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
     authentication_classes = [JWTAuthentication]
@@ -53,6 +56,7 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
     def get_object(self):
         return self.request.user
  
+    #  get data
     #  get data
     def get(self, *args):
         user_obj = self.get_object()
@@ -98,3 +102,6 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
             'status':status.HTTP_200_OK,
             'message':'User updated successfully'
         }))
+        
+        
+        # @extend_schema(auth=[])
